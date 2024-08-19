@@ -1,0 +1,51 @@
+DROP TABLE LGONZALES.COSTOS_DISTRIBUCION CASCADE CONSTRAINTS;
+
+CREATE TABLE LGONZALES.COSTOS_DISTRIBUCION
+(
+  "id"                    NUMBER(20)            NOT NULL,
+  "descripcion"           NVARCHAR2(255),
+  "estado"                NVARCHAR2(1),
+  "usuario_creacion"      NVARCHAR2(255)        NOT NULL,
+  "fecha_creacion"        DATE,
+  "usuario_modificacion"  NVARCHAR2(255),
+  "fecha_modificacion"    DATE,
+  "f_transaccion"         DATE
+)
+TABLESPACE XRAY_DOCUMENTO_CXC
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          64K
+            NEXT             1M
+            MINEXTENTS       1
+            MAXEXTENTS       UNLIMITED
+            PCTINCREASE      0
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE;
+
+
+ALTER TABLE LGONZALES.COSTOS_DISTRIBUCION ADD (
+  PRIMARY KEY
+  ("id")
+  USING INDEX
+    TABLESPACE XRAY_DOCUMENTO_CXC
+    PCTFREE    10
+    INITRANS   2
+    MAXTRANS   255
+    STORAGE    (
+                INITIAL          64K
+                NEXT             1M
+                MINEXTENTS       1
+                MAXEXTENTS       UNLIMITED
+                PCTINCREASE      0
+                BUFFER_POOL      DEFAULT
+               )
+  ENABLE VALIDATE);
+
+
+--  There is no statement for index LGONZALES.SYS_C0034929.
+--  The object is created when the parent object is created.
