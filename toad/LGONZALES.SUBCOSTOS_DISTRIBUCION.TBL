@@ -1,0 +1,68 @@
+DROP TABLE LGONZALES.SUBCOSTOS_DISTRIBUCION CASCADE CONSTRAINTS;
+
+CREATE TABLE LGONZALES.SUBCOSTOS_DISTRIBUCION
+(
+  "id"                    NUMBER(20)            NOT NULL,
+  "descripcion"           NVARCHAR2(255),
+  "costo_id"              NUMBER(20),
+  "estado"                NVARCHAR2(1),
+  "usuario_creacion"      NVARCHAR2(255),
+  "fecha_creacion"        DATE,
+  "usuario_modificacion"  NVARCHAR2(255),
+  "fecha_modificacion"    DATE,
+  "f_transaccion"         DATE
+)
+TABLESPACE XRAY_DOCUMENTO_CXC
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          64K
+            NEXT             1M
+            MINEXTENTS       1
+            MAXEXTENTS       UNLIMITED
+            PCTINCREASE      0
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE;
+
+
+ALTER TABLE LGONZALES.SUBCOSTOS_DISTRIBUCION ADD (
+  PRIMARY KEY
+  ("id")
+  USING INDEX
+    TABLESPACE XRAY_DOCUMENTO_CXC
+    PCTFREE    10
+    INITRANS   2
+    MAXTRANS   255
+    STORAGE    (
+                INITIAL          64K
+                NEXT             1M
+                MINEXTENTS       1
+                MAXEXTENTS       UNLIMITED
+                PCTINCREASE      0
+                BUFFER_POOL      DEFAULT
+               )
+  ENABLE VALIDATE);
+
+
+CREATE INDEX LGONZALES."fk_costos_subcostos" ON LGONZALES.SUBCOSTOS_DISTRIBUCION
+("costo_id")
+LOGGING
+TABLESPACE XRAY_DOCUMENTO_CXC
+PCTFREE    10
+INITRANS   2
+MAXTRANS   255
+STORAGE    (
+            INITIAL          64K
+            NEXT             1M
+            MINEXTENTS       1
+            MAXEXTENTS       UNLIMITED
+            PCTINCREASE      0
+            BUFFER_POOL      DEFAULT
+           );
+
+--  There is no statement for index LGONZALES.SYS_C0034928.
+--  The object is created when the parent object is created.
