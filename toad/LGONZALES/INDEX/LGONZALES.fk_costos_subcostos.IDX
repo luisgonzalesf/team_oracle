@@ -1,0 +1,17 @@
+DROP INDEX LGONZALES."fk_costos_subcostos";
+
+CREATE INDEX LGONZALES."fk_costos_subcostos" ON LGONZALES.SUBCOSTOS_DISTRIBUCION
+("costo_id")
+LOGGING
+TABLESPACE XRAY_DOCUMENTO_CXC
+PCTFREE    10
+INITRANS   2
+MAXTRANS   255
+STORAGE    (
+            INITIAL          64K
+            NEXT             1M
+            MINEXTENTS       1
+            MAXEXTENTS       UNLIMITED
+            PCTINCREASE      0
+            BUFFER_POOL      DEFAULT
+           );
